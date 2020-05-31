@@ -6,17 +6,19 @@ This is my solution to a test task for an internship in Readdle for Back End Int
 
 ### How to use?
 
-Open test1Readdle.go to see the solution for Test task 1.
+Open [test1Readdle.go](https://github.com/olden8r/testTasksReaddle2020/blob/master/test1Readdle.go) to see the solution for Test task 1.
 
-   allPublicHolidaysUA.json - open to see the json-data that is used for Ukraine 2020.
+   [allPublicHolidaysUA.json](https://github.com/olden8r/testTasksReaddle2020/blob/master/allPublicHolidaysUA.json) - open to see the json-data that is used for Ukraine 2020.
 
-Open test2Readdle.go to see the solution for Test task 2.
+Open [test2Readdle.go](https://github.com/olden8r/testTasksReaddle2020/blob/master/test2Readdle.go) to see the solution for Test task 2.
 
    [first_test2.sql](https://github.com/olden8r/testTasksReaddle2020/blob/master/first_test2.sql) - is for the first sql query
 
    [second_test2.sql](https://github.com/olden8r/testTasksReaddle2020/blob/master/second_test2.sql) - is for the second sql query
 
    [third_test2.sql](https://github.com/olden8r/testTasksReaddle2020/blob/master/third_test2.sql) - is for the third sql query
+
+## Tasks
 
 ### Test task 1 (HTTP, APIs, time)
 
@@ -32,7 +34,7 @@ P.S. A candidate is expected to calculate long weekends manually, without using 
 
 ### Test task 2 (MySQL)
 
-Download and install the Employee sample database (https://dev.mysql.com/doc/employee/en/employees-installation.html).
+Download and install the [Employee sample database](https://dev.mysql.com/doc/employee/en/employees-installation.html).
 
 Structure: https://dev.mysql.com/doc/employee/en/sakila-structure.html.
 
