@@ -10,15 +10,15 @@ How to use?
 
 Open test1Readdle.go to see the solution for Test task 1.
 
-    allPublicHolidaysUA.json - open to see the json-data that is used for Ukraine 2020.
+   allPublicHolidaysUA.json - open to see the json-data that is used for Ukraine 2020.
 
 Open test2Readdle.go to see the solution for Test task 2.
 
-    first_test2.sql - is for the first sql query
+   first_test2.sql - is for the first sql query
 
-    second_test2.sql - is for the second sql query
+   second_test2.sql - is for the second sql query
 
-    third_test2.sql - is for the third sql query
+   third_test2.sql - is for the third sql query
 
 Test task 1 (HTTP, APIs, time)
 ------------------------------
