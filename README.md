@@ -8,7 +8,6 @@ This is my solution to a test task for an internship in Readdle for Back End Int
 
 Open [test1Readdle.go](https://github.com/olden8r/testTasksReaddle2020/blob/master/test1Readdle.go) to see the solution for Test task 1.
 
-   [allPublicHolidaysUA.json](https://github.com/olden8r/testTasksReaddle2020/blob/master/allPublicHolidaysUA.json) - open to see the json-data that is used for Ukraine 2020.
 
 Open [test2Readdle.go](https://github.com/olden8r/testTasksReaddle2020/blob/master/test2Readdle.go) to see the solution for Test task 2.
 
