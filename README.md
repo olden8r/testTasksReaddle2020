@@ -1,6 +1,27 @@
 # testTasksReaddle2020
 
+What is it?
+------------------------------
+
+This is my solution to a test task for an internship in Readdle for Back End Internship 2020.
+
+How to use?
+------------------------------
+
+Open test1Readdle.go to see the solution for Test task 1.
+
+    allPublicHolidaysUA.json - open to see the json-data that is used for Ukraine 2020.
+
+Open test2Readdle.go to see the solution for Test task 2.
+
+    first_test2.sql - is for the first sql query
+
+    second_test2.sql - is for the second sql query
+
+    third_test2.sql - is for the third sql query
+
 Test task 1 (HTTP, APIs, time)
+------------------------------
 
 Use 3rd-party JSON API: https://date.nager.at/PublicHoliday/Country/UA
 
@@ -11,7 +32,9 @@ Additionally, if the holiday is adjacent to a weekend (so that amount of non-wor
 P.S. A candidate is expected to calculate long weekends manually, without using any other 3rd-party API, except the one with national holidays.
 
 
+
 Test task 2 (MySQL)
+------------------------------
 
 Download and install the Employee sample database (https://dev.mysql.com/doc/employee/en/employees-installation.html).
 
