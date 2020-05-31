@@ -17,11 +17,11 @@ Structure: https://dev.mysql.com/doc/employee/en/sakila-st ructure.html.
 
 Create queries:
 
-1) Find all current managers of each department and display his/her title, first name, last name, current salary.
+  1. Find all current managers of each department and display his/her title, first name, last name, current salary.
 
-2)Find all employees (department, title, first name, last name, hire date, how many years they have been working) to congratulate them on their hire anniversary this month.
+  2. Find all employees (department, title, first name, last name, hire date, how many years they have been working) to congratulate them on their hire anniversary this month.
 
-3)Find all departments, their current employee count, their current sum salary.
+  3. Find all departments, their current employee count, their current sum salary.
 
 Expected result:
 Runnable Go application with required functionality implemented.
