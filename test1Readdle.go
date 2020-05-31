@@ -11,20 +11,21 @@ import (
 )
 
 func main() {
-	
+	// get json-data
 	urlString := "https://date.nager.at/Api/v1/Get/UA/2020"
 	data, err := loadHolidayData(urlString)
 	errorAlarm(err)
 
+	// parse json-data
     holidays, err := parseHolidayData(data)
 	errorAlarm(err)
 
-	//определяем какой сегодня день
+	//define what day is today
 	nowDay := time.Now()
-	//nowDay := time.Date(2020, 12, 28, 20, 34, 58, 651387237, time.UTC)
 	fmt.Println("Today is", nowDay.Weekday(),",", nowDay.Month(), ",", nowDay.Day())
 
-	message := makeHolidayMassage(nowDay, holidays)
+	//print message with result
+	message := makeHolidayMessage(nowDay, holidays)
 	fmt.Println(message)
 }
 
@@ -41,7 +42,7 @@ type holiday struct {
 	Type        string      `json:"type"`
 }
 
-// получаем данные с сайта
+// get data from API
 func loadHolidayData(url string) (data []byte, err error) {
 	resp, err := http.Get(url)
 	errorAlarm(err)
@@ -54,22 +55,22 @@ func loadHolidayData(url string) (data []byte, err error) {
 	return dataFromUrl, nil
 }
 
-// превращаем json-данные в массив определённого типа
+// convert json-data into array of type holiday
 func parseHolidayData(jsonData []byte) ([]holiday, error) {
-	//создаем массив json-обьектов нужного типа
+	//create an array of type holiday
     var allHolidaysArray []holiday
 
-    //заполняем массив json-данными
+    //fill an array with json-data
 	err := json.Unmarshal(jsonData, &allHolidaysArray)
 	errorAlarm(err)
 
 	return allHolidaysArray, nil
 }
 
-//определяет, ждут ли нас длинные выходные,
-//если да - возвращает строку с датами начала и конца длинных выходных 
-//если выходные короткие - пустую строку
-func isLongWeekendMassage(tmpDateOfHoliday time.Time) (massage string) {
+//determines if a long weekend awaits us,
+//if yes - returns a string with the start and end dates of the long weekend
+//if the weekend is short - an empty string
+func isLongWeekendMessage(tmpDateOfHoliday time.Time) (message string) {
     switch tmpDateOfHoliday.Weekday() {
 	    case time.Friday, time.Saturday:
 	    	lastDayOff := tmpDateOfHoliday.AddDate(0, 0, 2)
@@ -100,35 +101,34 @@ func isLongWeekendMassage(tmpDateOfHoliday time.Time) (massage string) {
     }
 }
 
-// возвращает строку - сообщение с праздником
-func makeCongratulationMessage(holidayDay holiday, tmpDateOfHoliday time.Time, today bool) (massage string){
-	massageString := ""
+// returns a string - a congratulation message about holiday
+func makeCongratulationMessage(holidayDay holiday, tmpDateOfHoliday time.Time, today bool) (message string){
+	messageString := ""
 	if(today == true){
-		massageString += "Today is a holiday! It is " + holidayDay.Name
+		messageString += "Today is a holiday! It is " + holidayDay.Name
 	} else {
-		massageString += ("The next holiday is " + holidayDay.Name +
+		messageString += ("The next holiday is " + holidayDay.Name +
     		" (" +
     		tmpDateOfHoliday.Weekday().String() + ", " +
     		tmpDateOfHoliday.Month().String() + ", " +
     		strconv.Itoa(tmpDateOfHoliday.Day()) +
     		")")
 	}
-	massageString += isLongWeekendMassage(tmpDateOfHoliday)
-    return massageString
+	messageString += isLongWeekendMessage(tmpDateOfHoliday)
+    return messageString
 }
 
-// возвращает строку - финальный результат
-func makeHolidayMassage(now time.Time,  holidays []holiday) (massage string) {
-
-	for _, kHoliday := range holidays {
-    	
+// returns a string - the final result
+func makeHolidayMessage(now time.Time,  holidays []holiday) (message string) {
+	for _, kHoliday := range holidays {	
+		
     	DateOfHoliday := parseDateFromString(now, kHoliday)
-    	//
-    	/*в Json-файле праздники отсортированы в правильном порядке, 
-    		поэтому когда мы встречаем первую дату, которая равна сегодняшнему дню
-    		(или является будущей, относительно нашей даты) 
-    		выводим сообщение о празднике и выходим из цикла
-    	*/ 
+
+    	// in the json file, the holidays are sorted in the correct order,
+    	// so when we meet the first date, which is equal to today date
+    	// or is bigger than our date
+		// display a message about the holiday and exit the cycle
+
     	if now.Before(DateOfHoliday) {
     		return makeCongratulationMessage(kHoliday, DateOfHoliday, false)
     		
@@ -139,12 +139,14 @@ func makeHolidayMassage(now time.Time,  holidays []holiday) (massage string) {
     return "There are no holidays until the end of the year."
 }
 
-//превращаем Json-дату в формате строки в дату типа Date()
+//convert Json-data from string format into format time.Date()
 func parseDateFromString(now time.Time, holidayDay holiday) (time.Time) {
-	/* данные в Json-файле это строка типа "yyyy-mm-dd"
-    		разбиваем её на массив из трех ячеек [yyyy, mm, dd] 
-    		и создаем обьект типа Дата (вместо параметров которых мы не знаем - используем параметры текущей даты)
-    */
+
+	// the data in the json file is a string like "yyyy-mm-dd",
+	// we break it into an array of three cells [yyyy, mm, dd]
+	// and create an object of type Date
+	//instead of the unknown parameters- we use the parameters of the current date
+
     tmpDateArr := strings.Split(holidayDay.Date, "-")
     tmpMonth, _ := strconv.Atoi(tmpDateArr[1])
     tmpDay, _ := strconv.Atoi(tmpDateArr[2])
@@ -155,14 +157,14 @@ func parseDateFromString(now time.Time, holidayDay holiday) (time.Time) {
     return tmpDateOfHoliday
 }
 
-// проверка не являются ли введенные данные пустыми
+// check if the entered data is empty
 func errorAlarm(b interface{}) {
     if b != nil {
       fmt.Print(b)
     }
 }
 
-// проверяем, являются ли введенные json-данные валидными
+// check if the entered json-data is valid
 func isJsonDataValidAlarm (data []byte) {
     if(json.Valid([]byte(data)) == false){
     	panic("invalid json data")
