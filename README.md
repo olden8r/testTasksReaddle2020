@@ -1,12 +1,10 @@
 # testTasksReaddle2020
 
-What is it?
-------------------------------
+### What is it?
 
 This is my solution to a test task for an internship in Readdle for Back End Internship 2020.
 
-How to use?
-------------------------------
+### How to use?
 
 Open test1Readdle.go to see the solution for Test task 1.
 
@@ -14,14 +12,13 @@ Open test1Readdle.go to see the solution for Test task 1.
 
 Open test2Readdle.go to see the solution for Test task 2.
 
-   first_test2.sql - is for the first sql query
+   [first_test2.sql](https://github.com/olden8r/testTasksReaddle2020/blob/master/first_test2.sql) - is for the first sql query
 
-   second_test2.sql - is for the second sql query
+   [second_test2.sql](https://github.com/olden8r/testTasksReaddle2020/blob/master/second_test2.sql) - is for the second sql query
 
-   third_test2.sql - is for the third sql query
+   [third_test2.sql](https://github.com/olden8r/testTasksReaddle2020/blob/master/third_test2.sql) - is for the third sql query
 
-Test task 1 (HTTP, APIs, time)
-------------------------------
+### Test task 1 (HTTP, APIs, time)
 
 Use 3rd-party JSON API: https://date.nager.at/PublicHoliday/Country/UA
 
@@ -33,8 +30,7 @@ P.S. A candidate is expected to calculate long weekends manually, without using 
 
 
 
-Test task 2 (MySQL)
-------------------------------
+### Test task 2 (MySQL)
 
 Download and install the Employee sample database (https://dev.mysql.com/doc/employee/en/employees-installation.html).
 
